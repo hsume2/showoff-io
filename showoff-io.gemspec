@@ -24,18 +24,18 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<json_pure>, [">= 0"])
       s.add_runtime_dependency(%q<rest-client>, ["= 1.6.1"])
-      s.add_runtime_dependency(%q<net-ssh>, [">= 2.1.0"])
+      s.add_runtime_dependency(%q<net-ssh>, [">= 2.0.23"])
       s.add_runtime_dependency(%q<highline>, [">= 1.6.1"])
     else
       s.add_dependency(%q<json_pure>, [">= 0"])
       s.add_dependency(%q<rest-client>, ["= 1.6.1"])
-      s.add_dependency(%q<net-ssh>, [">= 2.1.0"])
+      s.add_dependency(%q<net-ssh>, [">= 2.0.23"])
       s.add_dependency(%q<highline>, [">= 1.6.1"])
     end
   else
     s.add_dependency(%q<json_pure>, [">= 0"])
     s.add_dependency(%q<rest-client>, ["= 1.6.1"])
-    s.add_dependency(%q<net-ssh>, [">= 2.1.0"])
+    s.add_dependency(%q<net-ssh>, [">= 2.0.23"])
     s.add_dependency(%q<highline>, [">= 1.6.1"])
   end
 end

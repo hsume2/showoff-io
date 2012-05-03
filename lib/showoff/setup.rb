@@ -1,3 +1,5 @@
+require 'tempfile'
+
 module Showoff
   class Setup
     extend Showoff::Helpers
@@ -34,7 +36,10 @@ module Showoff
           keys, data, only = [key], nil, true
         elsif Showoff::Settings.has_key_data?
           ## A key pair is stored in the config.
-          keys, data, only = nil, [Showoff::Settings.private_key_data], true
+          file = Tempfile.new('showoffrc.pem')
+          file.write(Showoff::Settings.private_key_data)
+          file.close
+          keys, data, only = [file.path], nil, true
         else
           ## No key was given, nothing is configured. Fall back to
           ## whatever happens to be in ~/.ssh
@@ -42,7 +47,7 @@ module Showoff
         end
 
         host = Showoff::Settings.host
-        Net::SSH.start(host, 'showoff', :keys => keys, :keys_only => only, :key_data => data)
+        Net::SSH.start(host, 'showoff', :keys => keys)
       end
 
       def setup_auth(key=nil)

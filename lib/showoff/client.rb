@@ -90,6 +90,10 @@ module Showoff
           @host = host
         end
 
+        opts.on('-a', '--anonymous', 'Don\'t ask for credentials if not authenticated') do |host|
+          @anonymous = true
+        end
+
       end
 
       @opts.parse!
@@ -262,7 +266,7 @@ module Showoff
     end
 
     def add_account
-      if ask 'Do you have a Showoff account?', false
+      if !@anonymous && ask('Do you have a Showoff account?', false)
         authorize
       end
     end
