@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.dirname($0)
+$:.unshift File.dirname(__FILE__) + '/../lib'
+require 'showoff'
+trap(:INT) {
+  print "\n\n"
+  exit
+}
+@client = Showoff::Client.new(ARGV)
+@client.runner

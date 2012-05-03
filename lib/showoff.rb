@@ -1,0 +1,16 @@
+require 'rbconfig'
+require 'rubygems'
+require 'uri'
+require 'optparse'
+require 'rest_client'
+require 'net/ssh'
+require 'json/pure'
+require 'highline/system_extensions'
+require 'showoff/helpers.rb'
+require 'showoff/api.rb'
+require 'showoff/setup.rb'
+require 'showoff/session.rb'
+require 'showoff/client.rb'
+require 'showoff/settings.rb'
+
+Showoff::Settings.load()
